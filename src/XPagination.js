@@ -10,7 +10,7 @@ function XPagination() {
 
     const [currPage , setCurrPage] = useState(1) ;
     const [paginatedEntries , setPaginatedEntries] = useState([]) ;
-    const [loading, setLoading] = useState(true); 
+    // const [loading, setLoading] = useState(true); 
 
     const totalPages = Math.ceil(data.length / entryPerPage) ;
 
@@ -23,11 +23,11 @@ function XPagination() {
                 }
                 const result = await response.json() ;
                 setData(result) ;
-                setLoading(false);
+                // setLoading(false);
             }catch(error) {
                 console.error("Error " , error) ;
                 alert("failed to fetch data");
-                setLoading(false);
+                // setLoading(false);
             }
         } ;
         fetchData() ;
@@ -45,9 +45,9 @@ function XPagination() {
         setCurrPage(pageNo) ;
     } ;
 
-    if (loading) {
-        return <div>Loading...</div>; 
-    }
+    // if (loading) {
+    //     return <div>Loading...</div>; 
+    // }
 
     return (
         <div>
