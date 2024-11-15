@@ -11,12 +11,15 @@ function XPagination() {
     const [currPage , setCurrPage] = useState(1) ;
     const [paginatedEntries , setPaginatedEntries] = useState([]) ;
 
-    const totalPages = Math.ceil(data.length / entryPerPage) ;
+    const totalPages = Math.ceil(46 / entryPerPage) ;
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch("https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json") ;
+                 if(!response.ok) {
+                    throw new Error(`Error: ${response.status} ${response.statusText}`) ;
+                }
                 const result = await response.json() ;
                 setData(result) ;
             }catch(error) {
