@@ -116,7 +116,7 @@ function XPagination() {
         setLoading(false); // Set loading to false after data is loaded
       } catch (error) {
         console.error("Error", error);
-        alert("Failed to load data. Please try again later.");
+        alert("failed to fetch data");
         setLoading(false); // Set loading to false even if there is an error
       }
     };
