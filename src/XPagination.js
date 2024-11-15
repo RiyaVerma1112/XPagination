@@ -24,6 +24,7 @@ function XPagination() {
                 setData(result) ;
             }catch(error) {
                 console.error("Error " , error) ;
+                alert("Failed to load data. Please try again later.");
             }
         } ;
         fetchData() ;
