@@ -12,7 +12,7 @@ function XPagination() {
     const [paginatedEntries , setPaginatedEntries] = useState([]) ;
     const [loading, setLoading] = useState(true); 
 
-    const totalPages = Math.ceil(46 / entryPerPage) ;
+    const totalPages = Math.ceil(data.length / entryPerPage) ;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -61,17 +61,18 @@ function XPagination() {
                         <th style={{width: '20%' , paddingLeft: "10px"}} >Role</th>
                     </tr>
                 </thead>
-                {paginatedEntries.map((entry) => {
-                    return (
-                        <tr key={entry.id} style={{height: "50px"}}>
-                            <td style={{paddingLeft: "10px"}}>{entry.id}</td>
-                            <td style={{paddingLeft: "10px"}}>{entry.name}</td>
-                            <td style={{paddingLeft: "10px"}}>{entry.email}</td>
-                            <td style={{paddingLeft: "10px"}}>{entry.role}</td>
-                        </tr>
-                    )
-                })}
-                
+                <tbody>
+                    {paginatedEntries.map((entry) => {
+                        return (
+                            <tr key={entry.id} style={{height: "50px"}}>
+                                <td style={{paddingLeft: "10px"}}>{entry.id}</td>
+                                <td style={{paddingLeft: "10px"}}>{entry.name}</td>
+                                <td style={{paddingLeft: "10px"}}>{entry.email}</td>
+                                <td style={{paddingLeft: "10px"}}>{entry.role}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
             </table>
 
             <div className="footer">    
